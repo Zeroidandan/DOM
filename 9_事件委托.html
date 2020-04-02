@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        ul {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #000;
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 80px;
+            height: 80px;
+            background-color: #ccc;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">上li</button>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        var btn = document.getElementById('btn');
+        var list = document.getElementById('list');
+
+        // 事件委托
+        list.onclick = function(e){
+            if (e.target.nodeName.toLowerCase() == 'li') {
+                e.target.style.background = 'red';
+            }
+        }
+
+        btn.onclick = function(){
+            var li = document.createElement('li');
+            list.appendChild(li);
+        }
+    </script>
+</body>
+
+</html>

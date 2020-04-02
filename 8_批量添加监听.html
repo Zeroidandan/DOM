@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量添加监听</title>
+</head>
+
+<body>
+    <h4>批量添加监听</h4>
+    <h4>目标：点击按钮，弹出它自己的序号。</h4>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+
+    <script>
+        // 获取按钮数组
+        var buttons = document.getElementsByTagName('button');
+
+        // 方法一：循环遍历数组添加监听--此方法，不管点击哪个都弹出10
+        // for (var i = 0; i < buttons.length; i++) {
+        //     buttons[i].onclick = function () {
+        //         //    alert('Hello!');
+        //         alert(i);
+        //     }
+        // }
+
+        // 方法二：IIFE，立即执行匿名函数
+        for (var i = 0; i < buttons.length; i++) {
+            (function (i) {
+                buttons[i].onclick = function () {
+                    alert(i);
+                }
+            })(i);
+        }
+    </script>
+</body>
+
+</html>

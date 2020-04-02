@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除元素</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+        }
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h4>删除元素</h4>
+    <h6>元素不能自杀，父元素可以删除子元素</h6>
+    <h6>语法：父元素.removeChild(子元素)</h6>
+    <h6>万能公式：子元素.parentNode.removeChild(子元素)</h6>
+    <button id="btn">删除box</button>
+    <div id="box">
+        我是盒子Box
+    </div>
+
+    <script>
+        var box  = document.getElementById('box');
+        var btn  = document.getElementById('btn');
+
+        btn.onclick = function(){
+            box.parentNode.removeChild(box);
+        }
+    </script>
+</body>
+</html>

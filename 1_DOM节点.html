@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM节点</title>
+    <style>
+        p {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border: 1px solid #000;
+            float: left;
+        }
+
+        div {
+            width: 400px;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">小明的父亲变橙</button>
+    <button id="btn2">小明的前一个兄弟变粉</button>
+    <button id="btn4">小明的后一个兄弟变红</button>
+    <button id="btn5">盒子第一个子元素变蓝</button>
+    <button id="btn6">盒子最后一个子元素变黑</button>
+    <button id="btn7">所有子元节点变绿</button>
+    <div id="box">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p id="xiaoming">小明</p>
+        <p></p>
+        <p></p>
+    </div>
+
+
+    <script>
+        // 得到按钮元素
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        // var btn3 = document.querySelector('#btn3');
+        var btn4 = document.querySelector('#btn4');
+        var btn5 = document.querySelector('#btn5');
+        var btn6 = document.querySelector('#btn6');
+        var btn7 = document.querySelector('#btn7');
+
+        // var xiaoming = document.getElementById('xiaoming');
+        var xiaoming = document.querySelector('#xiaoming');
+        var box = document.querySelector('#box');
+
+        // 按钮监听
+        btn1.onclick = function () {
+            // 小明的父节点
+            xiaoming.parentNode.style.background = 'orange';
+        }
+        btn2.onclick = function () {
+            // 小明的前元素兄弟
+            xiaoming.previousElementSibling.style.background = 'pink';
+        }
+        btn4.onclick = function () {
+            // 小明的后元素兄弟
+            xiaoming.nextElementSibling.style.background = 'red';
+        }
+        btn5.onclick = function () {
+            // 盒子第一个子元素变蓝
+            box.firstElementChild.style.background = 'blue';
+        }
+        btn6.onclick = function () {
+            // 盒子最后一个子元素变黑
+            box.lastElementChild.style.background = 'black';
+        }
+        btn7.onclick = function () {
+            // 所有子元节点变绿
+            // 得到数组
+            var childs = box.childNodes;
+            for (let i = 0; i < childs.length; i++) {
+                if (childs[i].nodeType == 1) {
+                    childs[i].style.background = 'green';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

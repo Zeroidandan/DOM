@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字号增加、字号减小</title>
+    <style>
+        p {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .p1 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="addSize">字号增加</button>
+    <button id="reduceSize">字号减少</button>
+    <p class="p1">当前字号是：<b id="size">24</b></p>
+    <p id="change">大家一定要加油，不要放弃！</p>
+
+    <script>
+        window.onload = function () {
+            var addSize = document.getElementById('addSize');
+            var reduceSize = document.getElementById('reduceSize');
+            var change = document.getElementById('change');
+            var size = document.getElementById('size');
+            var num = 24;
+
+            addSize.onclick = function () {
+                num += 2;
+                change.style.fontSize = num + 'px';
+                size.innerHTML = num;
+                if (num == 30) {
+                    addSize.disabled = 'disabled';
+                }
+                reduceSize.disabled = '';
+            }
+
+            reduceSize.onclick = function () {
+                num -= 2;
+                change.style.fontSize = num + 'px';
+                size.innerHTML = num;
+                if (num == 20) {
+                    reduceSize.disabled = 'disabled';
+                }
+                addSize.disabled = '';
+            }
+
+        }
+    </script>
+</body>
+
+</html>

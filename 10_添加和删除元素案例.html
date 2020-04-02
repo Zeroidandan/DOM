@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加和删除元素</title>
+    <style>
+        button {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <input type="text" id="kuang">
+    </label>
+    <button id="btn">添加</button>
+
+    <ul id="list">
+        <li>苹果<button>删除</button></li>
+        <li>西瓜<button>删除</button></li>
+    </ul>
+
+
+    <script>
+        // 得到元素
+        var btn = document.getElementById('btn');
+        var del = document.getElementById('del');
+        var li = document.getElementById('li');
+        var kuang = document.getElementById('kuang');
+        var list = document.getElementById('list');
+
+        // 按钮的事件监听
+        btn.onclick = function () {
+            // 创建li标签
+            var li = document.createElement('li');
+            var button = document.createElement('button');
+            // 改变li里面内容为框的内容
+            li.innerText = kuang.value;
+            // 改变button里面内容为删除
+            button.innerText = '删除';
+            list.appendChild(li);
+            li.appendChild(button);
+            kuang.value = '';
+            // 获取框的焦点
+            kuang.focus();
+        }
+
+        function add_id() {
+            // 给li和添加id
+            var li_id = document.getElementsByTagName('li');
+            for (let i = 0; i < li_id.length; i++) {
+                li_id[i].id = 'li';
+            }
+
+            // 给button和添加id
+            var btn_id = document.getElementsByTagName('button');
+            for (let j = 0; j < btn_id.length; j++) {
+                btn_id[j].id = 'del';
+            }
+        }
+
+        window.onload = add_id;
+
+        // 事件委托
+        list.onclick = function(e){
+            if (e.target.nodeName.toLowerCase() == 'button') {
+                // 删除你点击的这个按钮的父节点
+                list.removeChild(e.target.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

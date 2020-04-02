@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建节点和上树</title>
+    <h4>创建节点和上树</h4>
+    <label>
+        <input type="text" id="kuang">
+    </label>
+    <button id="btn1">appendChild()</button>
+    <button id="btn2">insertBefore()</button>
+    <ul id="list">
+        
+    </ul>
+
+    <script>
+        // 得到元素
+        var list = document.getElementById('list');
+        var kuang = document.getElementById('kuang');
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+
+        // 监听
+        btn1.onclick = function(){
+            // 创建li标签
+            var li = document.createElement('li');
+            // 改变li里的内容
+            li.innerText = kuang.value;
+            // 创建的是孤儿节点，必须添加到DOM树中  语法：父亲.appendChild(新元素)
+            list.appendChild(li);
+            // 清空文本框
+            kuang.value = '';
+            // 获取框的焦点
+            kuang.focus();
+        };
+
+        // 监听
+        btn2.onclick = function(){
+            // 创建li标签
+            var li = document.createElement('li');
+            // 改变li里的内容
+            li.innerText = kuang.value;
+            // 创建的是孤儿节点，语法：父元素.insertBefore(新元素, 标杆元素)
+            list.insertBefore(li,list.firstChild);
+            // 清空文本框
+            kuang.value = '';
+            // 获取框的焦点
+            kuang.focus();
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

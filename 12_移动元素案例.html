@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动元素案例</title>
+</head>
+
+<body>
+    <h4>喜欢的明星：</h4>
+    <ul id="like">
+        <li><input type="checkbox" class="checkbox">张国荣</li>
+        <li><input type="checkbox" class="checkbox">易烊千玺</li>
+        <li><input type="checkbox" class="checkbox">周杰伦</li>
+    </ul>
+    <button id="btn1">喜欢变不喜欢</button>
+
+    <h4>不喜欢的明星：</h4>
+    <ul id="unlike">
+        <li><input type="checkbox" class="checkbox">赵熠</li>
+        <li><input type="checkbox" class="checkbox">钱饵</li>
+        <li><input type="checkbox" class="checkbox">孙伞</li>
+    </ul>
+    <button id="btn2">不喜欢变喜欢</button>
+
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var like = document.getElementById('like');
+        var unlike = document.getElementById('unlike');
+        var checkboxs = document.getElementsByClassName('checkbox');
+        var lis = document.getElementsByTagName('li');
+
+
+        btn1.onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getElementsByTagName('input')[0].checked) {
+                    unlike.appendChild(lis[i]);
+                }
+            }
+            for (var j = 0; j < checkboxs.length; j++) {
+                checkboxs[j].checked = false;
+            }
+        }
+
+        btn2.onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].getElementsByTagName('input')[0].checked) {
+                    like.appendChild(lis[i]);
+                }
+            }
+            for (var j = 0; j < checkboxs.length; j++) {
+                checkboxs[j].checked = false;
+            }
+        }
+    </script>
+</body>
+
+</html>

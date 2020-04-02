@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取HTML元素的方式</title>
+    <style>
+        ul li {
+            width: 500px;
+            height: 50px;
+        }
+        div{
+            width: 200px;
+            height: 30px;
+        }
+        #box{
+            height: 200px;
+        }
+        #box1{
+            width: 100px;
+            height: 50px;
+            background-color: rgb(245, 211, 173);
+            color: coral;
+            font-size: 10px;
+            border: 1px solid coral;
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>获取HTML元素的方式</h4>
+    <ul>
+        <li>1.getElementById()：通过id得到节点（只能得到一个）</li>
+        <li>2.getElementByTagName()：通过标签得到节点们（数组）</li>
+        <li>3.getElementByClassName()：通过类名得到节点们（数组）</li>
+        <li>4.querySeletor()：通过选择器得到节点（只能得到一个）</li>
+        <li>5.querySeletorAll()：通过选择器得到节点们（数组）</li>
+        <li>都可以兼容IE8</li>
+    </ul>
+
+    <h4>如何通过DOM对HTML元素进行基本操作，如改变它的内部文字、标签的属性、改变类型和设置CSS样式？</h4>
+    <ul>
+        <li class="six">改类名
+            box.className = 'box'; <button id="btn6">按</button></li>
+        <li> 改属性
+            tutu.src = 'images/2.jpg';
+            <img id="seven" src="http://img4.imgtn.bdimg.com/it/u=3175648914,1396800326&fm=26&gp=0.jpg" alt=""
+                width="50px" height="50px">
+            <button id="btn7">按</button>
+        </li>
+        <li id="eight"> 改样式
+            box.style.backgroundColor = 'red';
+            <button id="btn8">按</button>
+        </li>
+        <li id="nine">改内容
+            box.innerHTML = '你好<i>哈哈</i>';
+            box.innerText = '你好';
+            <button id="btn9">按</button>
+        </li>
+    </ul>
+
+    <h4>制作一个效果：鼠标触碰复选框时，显示“为了信息安全，请勿在网吧或公用电脑上使用此功能！”字样的提示盒子。鼠标离开时，盒子隐藏。</h4>
+    <div class="box">
+        <!-- <div id="text">
+            <input type="text" placeholder="邮箱地址">
+        </div>
+        <div id="psd">
+            <input type="password" placeholder="密码">
+        </div> -->
+        <div id="check">
+            <input type="checkbox" onmouseover="show();" onmouseout="out();">十天之内免登陆
+            <div id="box1">为了信息安全，请勿在网吧或公用电脑上使用此功能</div>
+        </div>
+    </div>
+
+    <script>
+        var btn6 = document.querySelector('#btn6');
+        var btn7 = document.querySelector('#btn7');
+        var btn8 = document.querySelector('#btn8');
+        var btn9 = document.querySelector('#btn9');
+        var six = document.querySelector('.six');
+        var seven = document.querySelector('#seven');
+        var eight = document.querySelector('#eight');
+        var nine = document.querySelector('#nine');
+        // var box1 = document.querySelector('#box1');
+
+        btn6.onclick = function () {
+            six.className = 'sixsix';
+            alert(six.className);
+        }
+        btn7.onclick = function () {
+            seven.src = 'http://img2.imgtn.bdimg.com/it/u=2940116764,960110056&fm=26&gp=0.jpg';
+        }
+        btn8.onclick = function () {
+            eight.style.background = 'pink';
+        }
+        btn9.onclick = function () {
+            nine.innerHTML = '成功！';
+        }
+
+        function show(){
+            var box1=document.getElementById("box1");
+            box1.style.display='block';
+        }
+        function out(){
+            var box1=document.getElementById("box1");
+            box1.style.display='none';
+        }
+
+    </script>
+</body>
+
+</html>
